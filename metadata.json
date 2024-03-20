@@ -1,0 +1,7 @@
+{
+    "name": "MouseLock",
+    "description": "Allows the player to lock their mouse position",
+    "entry": "index.js",
+    "version": "1",
+    "creator": "Michael King"
+}
