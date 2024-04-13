@@ -2,12 +2,9 @@ const sensitivity = Client.getMinecraft().field_71474_y.field_74341_c
 
 var preLockSensitivity = 0
 var locked = false
+const newSensitivity = -1/3
 
 register("command", (...args) => {
-    newSensitivity = -1/3
-    if (args[0] != null) {
-        newSensitivity = args[0]
-    }
 
     if (locked) {
 
