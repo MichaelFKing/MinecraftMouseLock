@@ -1,25 +1,41 @@
-const sensitivity = Client.getMinecraft().field_71474_y.field_74341_c
+const settings = Client.getMinecraft().field_71474_y
+const sensitivity = settings.field_74341_c
 
+const newSensitivity = -1/3
 var preLockSensitivity = 0
 var locked = false
-const newSensitivity = -1/3
 
 register("command", (...args) => {
 
     if (locked) {
 
-        Client.getMinecraft().field_71474_y.field_74341_c = preLockSensitivity
-        ChatLib.chat("&aMouse Unlocked!")
-        locked = false 
+        unlock()
 
     } else {
 
-    preLockSensitivity = sensitivity
-    
-    Client.getMinecraft().field_71474_y.field_74341_c = newSensitivity
-    ChatLib.chat("&aMouse Locked!")
-    locked = true
+        lock()
 
     }
 
 }).setName("mouselock")
+
+
+const lock = () => {
+    if (locked) return
+    preLockSensitivity = sensitivity
+    
+    setSensitivity(newSensitivity)
+    ChatLib.chat("&aMouse Locked!")
+    locked = true
+}
+
+const unlock = () => {
+    if (!locked) return
+    setSensitivity(preLockSensitivity)
+    ChatLib.chat("&aMouse Unlocked!")
+    locked = false 
+}
+
+const setSensitivity = (sensitivity) => {
+    settings.field_74341_c = sensitivity
+}
