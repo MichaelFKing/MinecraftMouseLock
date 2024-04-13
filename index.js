@@ -39,3 +39,9 @@ const unlock = () => {
 const setSensitivity = (sensitivity) => {
     settings.field_74341_c = sensitivity
 }
+
+register("gameUnload", () => {
+    if (locked) {
+        unlock()
+    }
+});
