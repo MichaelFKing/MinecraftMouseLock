@@ -38,6 +38,8 @@ const unlock = () => {
 
 const setSensitivity = (sensitivity) => {
     settings.field_74341_c = sensitivity
+    settings.func_74303_b(); // save
+    settings.func_74300_a(); // load
 }
 
 register("gameUnload", () => {
